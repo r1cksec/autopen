@@ -1,0 +1,393 @@
+[
+    {
+        "name": "crackmapexec",
+        "riskLevel": "1",
+        "syntax": "crackmapexec smb <targetIp> > <outputFile> 2>&1",
+        "port": "445"
+    },
+    {
+        "name": "crackmapexec-user-pass",
+        "riskLevel": "1",
+        "syntax": "crackmapexec smb <targetIp> -u <user> -p \"<password>\" > <outputFile> 2>&1",
+        "port": "445"
+    },
+    {
+        "name": "enum4linux",
+        "riskLevel": "3",
+        "syntax": "enum4linux -a <targetIp> -v <port> > <outputFile> 2>&1",
+        "port": "139,445"
+    },
+    {
+        "name": "enum4linux-auth",
+        "riskLevel": "3",
+        "syntax": "enum4linux -u <user> -p \"<password>\" -a <targetIp>i -v > <outputFile> 2>&1",
+        "port": "139,445"
+    },
+	{
+        "name": "gobuster-noisy",
+        "riskLevel": "3",
+        "syntax": "gobuster dir -u http://<targetIp>:<port> -w REPLACEME/wordlists/big.txt -x .aspx,.php,.html,.txt -k -e -z > <outputFile> 2>&1",
+        "port": "80,5985,8080"
+    },
+	{
+        "name": "gobuster-noisy-https",
+        "riskLevel": "3",
+        "syntax": "gobuster dir -u https://<targetIp>:<port> -w REPLACEME/wordlists/big.txt -x .aspx,.php,.html,.txt -k -e -z > <outputFile> 2>&1",
+        "port": "443,8443"
+    },
+	{
+        "name": "gobuster-stealth",
+        "riskLevel": "3",
+        "syntax": "gobuster dir -u http://<targetIp>:<port> -w REPLACEME/wordlists/web-paths.txt --delay 1000ms -t 1 -x .aspx,.php,.html,.txt -k -e -z > <outputFile> 2>&1",
+        "port": "80,5985,8080"
+    },
+	{
+        "name": "gobuster-stealth-https",
+        "riskLevel": "3",
+        "syntax": "gobuster dir -u https://<targetIp>:<port> -w REPLACEME/wordlists/web-paths.txt --delay 1000ms -t 1 -x .aspx,.php,.html,.txt -k -e -z > <outputFile> 2>&1",
+        "port": "443,8443"
+    },
+    {
+        "name": "hydra-ftp",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> ftp://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "21"
+    },
+    {
+        "name": "hydra-ftp-default-creds",
+        "riskLevel": "4",
+        "syntax": "hydra -C REPLACEME/wordlists/ftp-betterdefaultpasslist.txt ftp://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "21"
+    },
+    {
+        "name": "hydra-ftp-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt ftp://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "21"
+    },
+    {
+        "name": "hydra-ftps-default-creds",
+        "riskLevel": "4",
+        "syntax": "hydra -C REPLACEME/wordlists/ftp-betterdefaultpasslist.txt ftps://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "989,990,6619"
+    },
+    {
+        "name": "hydra-ftps-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt ftps://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "989,990,6619"
+    },
+    {
+        "name": "hydra-ftps",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> ftps://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "989,990,6619"
+    },
+    {
+        "name": "hydra-imap",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> imap://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "143,220"
+    },
+    {
+        "name": "hydra-imap-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt imap://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "143,220"
+    },
+    {
+        "name": "hydra-imaps",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> imaps://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "585,993"
+    },
+    {
+        "name": "hydra-imaps-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt imaps://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "585,993"
+    },
+    {
+        "name": "hydra-mssql-default-creds",
+        "riskLevel": "4",
+        "syntax": "hydra -C REPLACEME/wordlists/mssql-betterdefaultpasslist.txt mssql://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "1433"
+    },
+    {
+        "name": "hydra-mssql",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> mssql://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "1433"
+    },
+    {
+        "name": "hydra-mssql-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt mssql://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "1433"
+    },
+    {
+        "name": "hydra-mysql",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> mysql://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "3306"
+    },
+    {
+        "name": "hydra-mysql-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt mysql://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "3306"
+    },
+    {
+        "name": "hydra-mysql-default-creds",
+        "riskLevel": "4",
+        "syntax": "hydra -C REPLACEME/wordlists/mysql-betterdefaultpasslist.txt mysql://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "3306"
+    },
+    {
+        "name": "hydra-oracle-default-creds",
+        "riskLevel": "4",
+        "syntax": "hydra -C REPLACEME/wordlists/oracle-betterdefaultpasslist.txt oracle://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "1521"
+    },
+    {
+        "name": "hydra-oracle-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt oracle://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "1521"
+    },
+    {
+        "name": "hydra-oracle",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> oracle://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "1521"
+    },
+    {
+        "name": "hydra-pop3",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> pop3://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "110"
+    },
+    {
+        "name": "hydra-pop3-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt pop3://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "110"
+    },
+    {
+        "name": "hydra-pop3s",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> pop3s://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "995"
+    },
+    {
+        "name": "hydra-pop3s-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt pop3s://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "995"
+    },
+    {
+        "name": "hydra-postgres-default-creds",
+        "riskLevel": "4",
+        "syntax": "hydra -C REPLACEME/wordlists/postgres-betterdefaultpasslist.txt postgres://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "5432"
+    },
+    {
+        "name": "hydra-postgres",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> postgres://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "5432"
+    },
+    {
+        "name": "hydra-postgres-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt postgres://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "5432"
+    },
+    {
+        "name": "hydra-rdp",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> rdp://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "3389"
+    },
+    {
+        "name": "hydra-rdp-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt rdp://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "3389"
+    },
+    {
+        "name": "hydra-rdp-default-creds",
+        "riskLevel": "4",
+        "syntax": "hydra -C REPLACEME/wordlists/windows-betterdefaultpasslist.txt rdp://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "3389"
+    },
+    {
+        "name": "hydra-rexec",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> rexec://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "512"
+    },
+    {
+        "name": "hydra-rexec-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt rexec://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "512"
+    },
+    {
+        "name": "hydra-rlogin",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> rlogin://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "513"
+    },
+    {
+        "name": "hydra-rlogin-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt rlogin://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "513"
+    },
+    {
+        "name": "hydra-ssh",
+        "riskLevel": "4",
+        "syntax": "hydra -C <userPassFile> ssh://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "22"
+    },
+    {
+        "name": "hydra-ssh-user-rockyou",
+        "riskLevel": "4",
+        "syntax": "hydra -l <user> -P REPLACEME/wordlists/rockyou-10.txt ssh://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "22"
+    },
+    {
+        "name": "hydra-ssh-default-creds",
+        "riskLevel": "4",
+        "syntax": "hydra -C REPLACEME/wordlists/ssh-betterdefaultpasslist.txt ssh://<targetIp>:<port> > <outputFile> 2>&1",
+        "port": "22"
+    },
+    {
+        "name": "lsassy",
+        "riskLevel": "2",
+        "syntax": "lsassy -d <domain> -u <user> -p \"<password>\" <targetIp> > <outputFile> 2>&1",
+        "port": "445"
+    },
+    {
+        "name": "netcat",
+        "riskLevel": "1",
+        "syntax": "timeout 60 nc -nv <targetIp> <port> > <outputFile> 2>&1",
+        "port": "*"
+    },
+    {
+        "name": "nikto",
+        "riskLevel": "3",
+        "syntax": "nikto -Tuning 125789 -h <targetIp> -port <port> > <outputFile> 2>&1",
+        "port": "80,443,5985,8080,8443"
+    },
+    {
+        "name": "nmap-afp",
+        "riskLevel": "4",
+        "syntax": "nmap -sV --min-rate 500 --script \"*afp*\" <targetIp> -p <port> > <outputFile> 2>&1",
+        "port": "548"
+    },
+    {
+        "name": "nmap-ajp",
+        "riskLevel": "4",
+        "syntax": "nmap -sV --min-rate 500 --script \"*ajp*\" <targetIp> -p <port> > <outputFile> 2>&1",
+        "port": "8009"
+    },
+    {
+        "name": "nmap-cassandra",
+        "riskLevel": "4",
+        "syntax": "nmap -sV --min-rate 500 --script \"*cassandra*\" <targetIp> -p <port> > <outputFile> 2>&1",
+        "port": "9042,9160"
+    },
+    {
+        "name": "nmap-cics",
+        "riskLevel": "4",
+        "syntax": "nmap -sV --min-rate 500 --script \"*cics*\" <targetIp> -p <port> > <outputFile> 2>&1",
+        "port": "23"
+    },
+    {
+        "name": "nmap-cvs",
+        "riskLevel": "4",
+        "syntax": "nmap -sV --min-rate 500 --script '\"*cvs*\" <targetIp> -p <port> > <outputFile> 2>&1",
+        "port": "2401"
+    },
+    {
+        "name": "nmap-informix",
+        "riskLevel": "4",
+        "syntax": "nmap -sV --min-rate 500 --script \"*informix*\" <targetIp> -p <port> > <outputFile> 2>&1",
+        "port": "9088"
+    },
+    {
+        "name": "nmap-ipmi",
+        "riskLevel": "4",
+        "syntax": "nmap -sV --min-rate 500 --script \"*ipmi*\" <targetIp> -p <port> > <outputFile> 2>&1",
+        "port": "623"
+    },
+    {
+        "name": "nmap-mongodb",
+        "riskLevel": "4",
+        "syntax": "nmap -sV --min-rate 500 --script \"*mongodb*\" <targetIp> -p <port> > <outputFile> 2>&1",
+        "port": "27017"
+    },
+    {
+        "name": "nmap-snmp",
+        "riskLevel": "4",
+        "syntax": "nmap -sV --min-rate 500 --script \"*snmp*\" <targetIp> -p <port> > <outputFile> 2>&1",
+        "port": "161"
+    },
+    {
+        "name": "nmap-xmpp",
+        "riskLevel": "4",
+        "syntax": "nmap -sV --min-rate 500 --script \"*xmpp*\" <targetIp> -p <port> > <outputFile> 2>&1",
+        "port": "5222"
+    },
+    {
+        "name": "rpcinfo",
+        "riskLevel": "1",
+        "syntax": "rpcinfo <targetIp> -n <port> > <outputFile> 2>&1",
+        "port": "111,135,445,593,2049"
+    },
+    {
+        "name": "secretsdump",
+        "riskLevel": "2",
+        "syntax": "impacket-secretsdump -dc-ip <domainControlerIp> <domain>/<user>:\"<password>\"@<targetIp> > <outputFile> 2>&1",
+        "port": "445"
+    },
+    {
+        "name": "showmount",
+        "riskLevel": "1",
+        "syntax": "showmount -e <targetIp> > <outputFile> 2>&1",
+        "port": "111,2049"
+    },
+    {
+        "name": "smbmap",
+        "riskLevel": "1",
+        "syntax": "smbmap -H <targetIp> -P <port> > <outputFile> 2>&1",
+        "port":"139,445"
+    },
+    {
+        "name": "smbmap-guest",
+        "riskLevel": "1",
+        "syntax": "smbmap -H <targetIp> -P <port> -u guest > <outputFile> 2>&1",
+        "port":"139,445"
+    },
+    {
+        "name": "smtp-enum-user",
+        "riskLevel": "1",
+        "syntax": "smtp-user-enum -M VRFY -D <domain> -U <userList> -w 30 -v -t <targetIp> > <outputFile> 2>&1",
+        "port":"25"
+    },
+    {
+        "name": "ssh-audit",
+        "riskLevel": "1",
+        "syntax": "ssh-audit <targetIp>:<port> --no-colors > <outputFile> 2>&1",
+        "port":"22"
+    },
+    {
+        "name": "whatweb",
+        "riskLevel": "3",
+        "syntax": "whatweb -v -a 3 <targetIp>:<port> > <outputFile> 2>&1",
+        "port": "80,443"
+    }
+]
+
