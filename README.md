@@ -45,7 +45,7 @@ The configuration can be extended as desired. <br>
 However, it should be noted that the modules cannot have the same name.
 <br>
 <br>
-Each module requires a risk level between 1 to 5.  <br>
+Each module requires a risk level between 1 to 4.  <br>
 The higher the level, the higher the probability that the module can cause damage.
 <br>
 <br>
@@ -149,7 +149,7 @@ optional arguments:
   -xf XMLFILE, --xmlFile XMLFILE
                         full path to xml nmap file
   -rl RISKLEVEL, --riskLevel RISKLEVEL
-                        set maximal riskLevel for modules (possible values 1-5, 2 is default)
+                        set maximal riskLevel for modules (possible values 1-4, 2 is default)
   -ta THREADAMOUNT, --threadAmount THREADAMOUNT
                         the amount of parallel running threads (default 5)
   -em [EXCLUDEMODULES ...], --exludeModules [EXCLUDEMODULES ...]

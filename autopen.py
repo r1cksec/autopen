@@ -509,14 +509,14 @@ argumentParser.add_argument("-rl",
                             "--riskLevel",
                             dest = "riskLevel",
                             help = "set maximal riskLevel for modules"
-                                   + " (possible values 1-5, 2 is default)",
+                                   + " (possible values 1-4, 2 is default)",
                             default = "2")
 
 argumentParser.add_argument("-ta",
                             "--threadAmount",
                             dest = "threadAmount",
                             help = "the amount of parallel running threads"
-                                   + " (default 6)",
+                                   + " (default 5)",
                             default = "5")
 
 argumentParser.add_argument("-em",
@@ -665,7 +665,7 @@ for runCommand in commandsToExecute:
 
         while 1:
             # run 5 threads in parallel
-            if (threading.active_count() <= int(args.threadAmount)):
+            if (threading.active_count() < int(args.threadAmount)):
                 currThread = threadForModule(runCommand[0], runCommand[1])
                 threads.append(currThread)
                 currThread.start()
