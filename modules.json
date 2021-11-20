@@ -13,25 +13,25 @@
     },
     {
         "name": "dirsearch-noisy-http",
-        "riskLevel": "4",
+        "riskLevel": "3",
         "syntax": "dirsearch -u http://<targetIp> -q -e aspx,php,html -x 404,500 --full-url > <outputFile> 2>&1",
         "port": "80,5985,8080"
     },
     {
         "name": "dirsearch-noisy-https",
-        "riskLevel": "4",
+        "riskLevel": "3",
         "syntax": "dirsearch -u https://<targetIp> -q -e aspx,php,html -x 404,500 --full-url > <outputFile> 2>&1",
         "port": "443,8443"
     },
     {
         "name": "dirsearch-stealth-http",
-        "riskLevel": "4",
+        "riskLevel": "3",
         "syntax": "dirsearch -u http://<targetIp> -q -w REPLACEME/wordlists/web-paths.txt -e aspx,php,html -x 404,500 --full-url --timeout=4 -s 1 > <outputFile> 2>&1",
         "port": "80,5985,8080"
     },
     {
         "name": "dirsearch-stealth-https",
-        "riskLevel": "4",
+        "riskLevel": "3",
         "syntax": "dirsearch -u https://<targetIp> -q -w REPLACEME/wordlists/web-paths.txt -e aspx,php,html -x 404,500 --full-url --timeout=4 -s 1 > <outputFile> 2>&1",
         "port": "443,8443"
     },
@@ -49,13 +49,13 @@
     },
     {
         "name": "gobuster-noisy-http",
-        "riskLevel": "4",
+        "riskLevel": "3",
         "syntax": "gobuster dir -u http://<targetIp>:<port> -w REPLACEME/wordlists/big.txt -x .aspx,.php,.html,.txt -k -e -z > <outputFile> 2>&1",
         "port": "80,5985,8080"
     },
     {
         "name": "gobuster-noisy-https",
-        "riskLevel": "4",
+        "riskLevel": "3",
         "syntax": "gobuster dir -u https://<targetIp>:<port> -w REPLACEME/wordlists/big.txt -x .aspx,.php,.html,.txt -k -e -z > <outputFile> 2>&1",
         "port": "443,8443"
     },
@@ -409,7 +409,7 @@
     },
     {
         "name": "smtp-enum-user",
-        "riskLevel": "1",
+        "riskLevel": "2",
         "syntax": "smtp-user-enum -M VRFY -D <domain> -U <userList> -w 30 -v -t <targetIp> > <outputFile> 2>&1",
         "port":"25"
     },
@@ -421,7 +421,7 @@
     },
     {
         "name": "whatweb",
-        "riskLevel": "3",
+        "riskLevel": "2",
         "syntax": "whatweb -v -a 3 <targetIp>:<port> > <outputFile> 2>&1",
         "port": "80,443"
     }
