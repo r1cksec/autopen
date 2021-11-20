@@ -209,8 +209,10 @@ output
 * <https://github.com/diegocr/netcat>
 * <https://github.com/Hackndo/lsassy>
 * <https://github.com/jtesta/ssh-audit>
+* <https://github.com/maurosoria/dirsearch>
 * <https://github.com/nmap/nmap>
 * <https://github.com/OJ/gobuster>
+* <https://github.com/projectdiscovery/nuclei>
 * <https://github.com/SecureAuthCorp/impacket/blob/master/examples/secretsdump.py>
 * <https://github.com/ShawnDEvans/smbmap>
 * <https://github.com/sullo/nikto>
